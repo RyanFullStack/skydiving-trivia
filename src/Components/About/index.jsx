@@ -17,7 +17,7 @@ function About() {
         if you've made it to the leaderboard you'll be prompted to enter your
         name. Leaderboard status is only given if completed on Hard mode.
       </p>
-      <p>Thanks for playing!</p>
+      <p className='blue'>Thanks for playing!</p>
       <button onClick={handleHome}>Home</button>
       <div>
         <small>By: <a href='https://github.com/RyanFullStack' rel='noreferrer' target='_blank'>Ryan Erickson</a></small>
