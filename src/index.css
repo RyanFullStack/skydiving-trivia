@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgb(255, 255, 255);
   background-color: #242424;
 
   font-synthesis: none;
@@ -34,11 +34,31 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: rgb(47, 204, 196);
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #64e0ff;
+  color: rgb(255, 255, 255);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+a:link {
+  color: rgb(47, 204, 196);
+}
+
+/* visited link */
+a:visited {
+  color: rgb(47, 204, 196);
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(255, 255, 255);
+}
+
+/* selected link */
+a:active {
+  color: rgb(47, 204, 196);
 }

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { questions } from "./Data/questionList";
 import TriviaQuiz from "./Components/Game";
 import Leaders from "./Components/Leaderboard";
+import About from "./Components/About";
 import "./App.css";
 
 function App() {
@@ -10,6 +11,10 @@ function App() {
       <Switch>
         <Route exact path='/leaderboard'>
           <Leaders />
+        </Route>
+
+        <Route exact path='/about'>
+          <About />
         </Route>
 
         <Route exact path="/">

@@ -124,7 +124,7 @@ const TriviaQuiz = ({ questions }) => {
         </>
       )}
       {currentQuestionIndex === -1 && (
-        <div>
+        <div className="home-page">
           <h1>Welcome to the CSC Skydiving trivia game!</h1>
           <label>
             Difficulty:
@@ -143,8 +143,9 @@ const TriviaQuiz = ({ questions }) => {
           {selectedDifficulty === "Hard" ? (
             <NavLink to="/leaderboard">View Leaderboard</NavLink>
           ) : (
-            "Must be on Hard for Leaderboard!"
+            <div className="not-hard-mode">Must be on Hard for Leaderboard!</div>
           )}
+          <NavLink to="/about">About</NavLink>
         </div>
       )}
       {currentQuestion && currentQuestionIndex !== -1 && (

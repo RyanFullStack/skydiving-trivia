@@ -1,6 +1,56 @@
 #root {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 1rem;
   text-align: center;
+}
+.home-page, .about-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(54, 54, 54, 0.877);
+  border-radius: 10px;
+  padding: 1em;
+}
+.home-page label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  margin: 1em 0 1em;
+}
+.home-page button, .about-page button {
+  margin-bottom: 3em;
+}
+.home-page select {
+  height: 2.5em;
+  border-radius: 5px;
+  text-align: center;
+  width: 120px;
+}
+.home-page a {
+  margin-bottom: 1em;
+}
+.about-page a:link {
+  color: rgb(255, 255, 255);
+}
+
+/* visited link */
+.about-page a:visited {
+  color: rgb(255, 255, 255);
+}
+
+/* mouse over link */
+.about-page a:hover {
+  color: rgb(47, 204, 196);
+}
+
+/* selected link */
+.about-page a:active {
+  color: rgb(255, 255, 255);
+}
+.not-hard-mode {
+  margin-bottom: 1em;
 }
