@@ -64,7 +64,6 @@ const TriviaQuiz = ({ questions }) => {
     }
   }, [currentQuestionIndex, gameStarted, selectedDifficulty, questions]);
 
-
   const handleAnswerClick = (answer) => {
     const currentQuestion = questionsList[currentQuestionIndex];
     if (currentQuestion) {
@@ -85,7 +84,6 @@ const TriviaQuiz = ({ questions }) => {
       setTimer(15);
     }, 1000);
   };
-
 
   const startGame = () => {
     setGameStarted(true);
@@ -116,9 +114,13 @@ const TriviaQuiz = ({ questions }) => {
     <div>
       {gameStarted && currentQuestion && (
         <>
-          <p>Correct Answers: {correctAnswersCount}</p>
-          <p>Time Remaining: {timer} seconds</p>
-          <p>Question {currentQuestionIndex + 1}/{questionsList.length}</p>
+          <div className="correct-timer">
+            <p>Correct: {correctAnswersCount}</p>
+            <p>Time: {timer} seconds</p>
+          </div>
+          <p>
+            Question {currentQuestionIndex + 1}/{questionsList.length}
+          </p>
         </>
       )}
       {currentQuestionIndex === -1 && (
@@ -138,7 +140,11 @@ const TriviaQuiz = ({ questions }) => {
           <div>
             <button onClick={startGame}>Start!</button>
           </div>
-          {selectedDifficulty === 'Hard' ? <NavLink to='/leaderboard'>View Leaderboard</NavLink> : 'Must be on Hard for Leaderboard!'}
+          {selectedDifficulty === "Hard" ? (
+            <NavLink to="/leaderboard">View Leaderboard</NavLink>
+          ) : (
+            "Must be on Hard for Leaderboard!"
+          )}
         </div>
       )}
       {currentQuestion && currentQuestionIndex !== -1 && (
@@ -181,7 +187,12 @@ const TriviaQuiz = ({ questions }) => {
         </div>
       )}
       {!currentQuestion && currentQuestionIndex !== -1 && gameStarted && (
-        <EndScreen correctAnswersCount={correctAnswersCount} questionsList={questionsList} selectedDifficulty={selectedDifficulty} resetGame={resetGame}/>
+        <EndScreen
+          correctAnswersCount={correctAnswersCount}
+          questionsList={questionsList}
+          selectedDifficulty={selectedDifficulty}
+          resetGame={resetGame}
+        />
       )}
     </div>
   );
