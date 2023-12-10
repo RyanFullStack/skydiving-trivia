@@ -13,6 +13,10 @@
   border-radius: 10px;
   padding: 1em;
 }
+.end-page button:disabled {
+  background-color: grey;
+  color: black;
+}
 
 .home-page label {
   display: flex;
@@ -54,4 +58,7 @@
 }
 .not-hard-mode {
   margin-bottom: 1em;
+}
+.red {
+  color: red;
 }

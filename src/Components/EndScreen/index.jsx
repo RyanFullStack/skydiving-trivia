@@ -42,17 +42,16 @@ function EndScreen({ correctAnswersCount, questionsList, selectedDifficulty, res
 
   return (
     <div className="end-page">
-      <h2>Quiz Completed</h2>
+      <h2>Finished!</h2>
       <p>Correct Answers: {correctAnswersCount}/{questionsList.length}</p>
-      <p>
         Your Score:{" "}
         {((correctAnswersCount / questionsList.length) * 100).toFixed(2)}%
-      </p>
       {lowestScore && selectedDifficulty === 'Hard' && correctAnswersCount >= lowestScore
       ?
       <div>
+        <h2>Congrats!</h2>
         <h3>You've earned a leaderboard spot!</h3>
-        <p>Enter your name below: <br /><small>up to 15 characters - </small><small>{userName.length} / 15</small></p>
+        <p>Enter your name below: <br /><small className={userName.length > 15 ? 'red' : ''}>(up to 15 characters - {userName.length} / 15)</small></p>
         <p><input type='text' value={userName} onChange={(e)=>setUserName(e.target.value)}/></p>
         <p><button onClick={handleSubmit} disabled={userName.length > 15 || !userName.trim()}>Submit!</button></p>
       </div>
