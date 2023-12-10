@@ -36,29 +36,29 @@ button {
   transition: border-color 0.25s;
   color: rgb(47, 204, 196);
 }
+
 button:hover {
   border-color: #64e0ff;
   color: rgb(255, 255, 255);
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
 a:link {
   color: rgb(47, 204, 196);
 }
 
-/* visited link */
 a:visited {
   color: rgb(47, 204, 196);
 }
 
-/* mouse over link */
 a:hover {
   color: rgb(255, 255, 255);
 }
 
-/* selected link */
 a:active {
   color: rgb(47, 204, 196);
 }
