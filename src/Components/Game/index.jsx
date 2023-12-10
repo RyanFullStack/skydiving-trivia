@@ -174,7 +174,6 @@ const TriviaQuiz = ({ questions }) => {
                 </button>
               </div>
             ))}
-
               <div
                 className='feedback'
                 style={{
