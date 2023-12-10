@@ -111,11 +111,12 @@ const TriviaQuiz = ({ questions }) => {
   const currentQuestion = questionsList[currentQuestionIndex];
 
   return (
-    <div>
+    <div className="game-page">
       {gameStarted && currentQuestion && (
         <>
           <div className="correct-timer">
             <p>Correct: {correctAnswersCount}</p>
+            <p>Mode: {selectedDifficulty}</p>
             <p>Time: {timer} seconds</p>
           </div>
           <p>
@@ -155,6 +156,7 @@ const TriviaQuiz = ({ questions }) => {
             {shuffledAnswers.map((answer, index) => (
               <div key={index}>
                 <button
+                  id='answer-button'
                   onClick={() => handleAnswerClick(answer)}
                   style={{
                     margin: "5px",
@@ -165,15 +167,16 @@ const TriviaQuiz = ({ questions }) => {
                         ? answer === currentQuestion.correctAnswer
                           ? "#4CAF50" // Correct answer selected
                           : "#FF5733" // Wrong answer selected
-                        : "#333333", // Default color
+                        : "#1a1a1a", // Default color
                   }}
                 >
                   {answer}
                 </button>
               </div>
             ))}
-            {selectedAnswer && (
-              <p
+
+              <div
+                className='feedback'
                 style={{
                   color:
                     selectedAnswer === currentQuestion.correctAnswer
@@ -182,8 +185,9 @@ const TriviaQuiz = ({ questions }) => {
                 }}
               >
                 {feedback}
-              </p>
-            )}
+              </div>
+
+            <button onClick={resetGame} id='quit-button'>QUIT</button>
           </div>
         </div>
       )}
