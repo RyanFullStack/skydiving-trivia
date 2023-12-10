@@ -25,8 +25,8 @@ function Leaders() {
   };
 
   return (
-    <div>
-      <h1>Leaderboard</h1>
+    <div className="leader-page">
+      <h1>Top 5</h1>
       <table style={{ borderCollapse: "collapse", width: "100%" }}>
         <thead>
           <tr>
@@ -55,6 +55,7 @@ function Leaders() {
         </tbody>
       </table>
       <p><button onClick={handleHome}>Home</button></p>
+      <small>Tie or beat the lowest score on hard mode to get your name here!</small>
     </div>
   );
 }

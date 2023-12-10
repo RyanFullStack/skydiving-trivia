@@ -41,7 +41,7 @@ function EndScreen({ correctAnswersCount, questionsList, selectedDifficulty, res
   }
 
   return (
-    <div>
+    <div className="end-page">
       <h2>Quiz Completed</h2>
       <p>Correct Answers: {correctAnswersCount}/{questionsList.length}</p>
       <p>

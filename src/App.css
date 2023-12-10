@@ -4,7 +4,7 @@
   padding: 1rem;
   text-align: center;
 }
-.home-page, .about-page {
+.home-page, .about-page, .leader-page, .end-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,6 +13,7 @@
   border-radius: 10px;
   padding: 1em;
 }
+
 .home-page label {
   display: flex;
   flex-direction: column;
