@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import EndScreen from "../EndScreen";
 
 const TriviaQuiz = ({ questions }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
@@ -12,25 +14,28 @@ const TriviaQuiz = ({ questions }) => {
   const [selectedDifficulty, setSelectedDifficulty] = useState("Hard");
 
   useEffect(() => {
-    if (gameStarted) {
-      let timerId;
+    let timerId;
 
-      if (timer > 0) {
-        timerId = setInterval(() => {
-          setTimer((prevTimer) => prevTimer - 1);
-        }, 1000);
-      } else {
-        setSelectedAnswer(null);
-        setFeedback(null);
-        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-        setTimer(15);
-      }
-
-      return () => {
-        clearInterval(timerId);
-      };
+    if (gameStarted && currentQuestionIndex !== -1 && timer > 0) {
+      timerId = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+    } else if (timer === 0 && currentQuestionIndex !== -1) {
+      setSelectedAnswer(null);
+      setFeedback(null);
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      setTimer(15);
     }
-  }, [timer, gameStarted]);
+
+    // Check if the game has ended
+    if (!gameStarted || currentQuestionIndex >= questionsList.length) {
+      clearInterval(timerId);
+    }
+
+    return () => {
+      clearInterval(timerId);
+    };
+  }, [timer, gameStarted, currentQuestionIndex, questionsList]);
 
   useEffect(() => {
     const currentQuestion = questionsList[currentQuestionIndex];
@@ -59,6 +64,7 @@ const TriviaQuiz = ({ questions }) => {
     }
   }, [currentQuestionIndex, gameStarted, selectedDifficulty, questions]);
 
+
   const handleAnswerClick = (answer) => {
     const currentQuestion = questionsList[currentQuestionIndex];
     if (currentQuestion) {
@@ -79,6 +85,7 @@ const TriviaQuiz = ({ questions }) => {
       setTimer(15);
     }, 1000);
   };
+
 
   const startGame = () => {
     setGameStarted(true);
@@ -111,14 +118,14 @@ const TriviaQuiz = ({ questions }) => {
         <>
           <p>Correct Answers: {correctAnswersCount}</p>
           <p>Time Remaining: {timer} seconds</p>
-          <p>Question {currentQuestionIndex + 1}</p>
+          <p>Question {currentQuestionIndex + 1}/{questionsList.length}</p>
         </>
       )}
       {currentQuestionIndex === -1 && (
         <div>
-          <h2>Welcome to the CSC Skydiving trivia game!</h2>
+          <h1>Welcome to the CSC Skydiving trivia game!</h1>
           <label>
-            Select Difficulty:{" "}
+            Difficulty:
             <select
               value={selectedDifficulty}
               onChange={(e) => setSelectedDifficulty(e.target.value)}
@@ -131,6 +138,7 @@ const TriviaQuiz = ({ questions }) => {
           <div>
             <button onClick={startGame}>Start!</button>
           </div>
+          {selectedDifficulty === 'Hard' ? <NavLink to='/leaderboard'>View Leaderboard</NavLink> : 'Must be on Hard for Leaderboard!'}
         </div>
       )}
       {currentQuestion && currentQuestionIndex !== -1 && (
@@ -173,17 +181,7 @@ const TriviaQuiz = ({ questions }) => {
         </div>
       )}
       {!currentQuestion && currentQuestionIndex !== -1 && gameStarted && (
-        <div>
-          <h2>Quiz Completed</h2>
-          <p>
-            Correct Answers: {correctAnswersCount}/{questionsList.length}
-          </p>
-          <p>
-            Your Score:{" "}
-            {((correctAnswersCount / questionsList.length) * 100).toFixed(2)}%
-          </p>
-          <button onClick={resetGame}>Play Again?</button>
-        </div>
+        <EndScreen correctAnswersCount={correctAnswersCount} questionsList={questionsList} selectedDifficulty={selectedDifficulty} resetGame={resetGame}/>
       )}
     </div>
   );
