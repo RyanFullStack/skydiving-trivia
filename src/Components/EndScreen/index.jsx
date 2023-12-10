@@ -30,11 +30,11 @@ function EndScreen({ correctAnswersCount, questionsList, selectedDifficulty, res
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
+            "api_key": import.meta.env.VITE_API_KEY
         },
         body: JSON.stringify({
             "name": userName,
-            "score": `${correctAnswersCount}/${questionsList.length}`,
-            "api_key": import.meta.env.VITE_API_KEY
+            "score": `${correctAnswersCount}/${questionsList.length}`
         })
     })
     history.push('/leaderboard')
