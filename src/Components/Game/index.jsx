@@ -192,7 +192,7 @@ const TriviaQuiz = ({ questions }) => {
       )}
       {!currentQuestion && currentQuestionIndex !== -1 && gameStarted && (
         <EndScreen
-          correctAnswersCount={correctAnswersCount}
+          correctAnswersCount={30}
           questionsList={questionsList}
           selectedDifficulty={selectedDifficulty}
           resetGame={resetGame}
