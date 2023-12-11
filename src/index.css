@@ -42,10 +42,10 @@ button:hover {
   color: rgb(255, 255, 255);
 }
 
-/* button:focus,
+button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-} */
+}
 
 a:link {
   color: rgb(47, 204, 196);
@@ -61,4 +61,16 @@ a:hover {
 
 a:active {
   color: rgb(47, 204, 196);
+}
+
+@media screen and (max-width:500px) {
+  button:hover {
+    border:none;
+    color: rgb(47, 204, 196);
+  }
+
+  button:focus,
+  button:focus-visible {
+    outline: none;
+  }
 }
