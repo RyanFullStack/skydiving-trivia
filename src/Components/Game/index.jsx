@@ -12,6 +12,7 @@ const TriviaQuiz = ({ questions }) => {
   const [gameStarted, setGameStarted] = useState(false);
   const [questionsList, setQuestionsList] = useState([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState("Hard");
+  const [answerSelected, setAnswerSelected] = useState(false);
 
   const history = useHistory();
 
@@ -52,7 +53,8 @@ const TriviaQuiz = ({ questions }) => {
 
   const handleAnswerClick = (answer) => {
     const currentQuestion = questionsList[currentQuestionIndex];
-    if (currentQuestion) {
+
+    if (currentQuestion && !answerSelected) {
       if (answer === currentQuestion.correctAnswer) {
         setCorrectAnswersCount((prevCount) => prevCount + 1);
         setFeedback("CORRECT!");
@@ -61,6 +63,7 @@ const TriviaQuiz = ({ questions }) => {
       }
     }
 
+    setAnswerSelected(true)
     setSelectedAnswer(answer);
 
     setTimeout(() => {
@@ -68,6 +71,7 @@ const TriviaQuiz = ({ questions }) => {
       setFeedback(null);
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       setTimer(20);
+      setAnswerSelected(false)
     }, 1000);
   };
 
@@ -160,6 +164,7 @@ const TriviaQuiz = ({ questions }) => {
                 <div key={index}>
                   <button
                     id="answer-button"
+                    disabled={answerSelected}
                     className={`answer-button ${
                       selectedAnswer === answer
                         ? answer === currentQuestion.correctAnswer
