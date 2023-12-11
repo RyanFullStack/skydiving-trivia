@@ -95,7 +95,7 @@ const TriviaQuiz = ({ questions }) => {
     setGameStarted(false);
     setCurrentQuestionIndex(-1);
     setCorrectAnswersCount(0);
-    setTimer(20)
+    setTimer(20);
   };
 
   const currentQuestion = questionsList[currentQuestionIndex];
@@ -129,7 +129,7 @@ const TriviaQuiz = ({ questions }) => {
             </select>
           </label>
           <div>
-            <button onClick={startGame}>Start!</button>
+            <button onClick={startGame} id='start-button'>Start!</button>
           </div>
           {selectedDifficulty === "Hard" ? (
             <NavLink to="/leaderboard">View Leaderboard</NavLink>
@@ -145,27 +145,29 @@ const TriviaQuiz = ({ questions }) => {
         <div>
           <h2>{currentQuestion.question}</h2>
           <div>
-            {shuffledAnswers.map((answer, index) => (
-              <div key={index}>
-                <button
-                  id="answer-button"
-                  onClick={() => handleAnswerClick(answer)}
-                  style={{
-                    margin: "5px",
-                    padding: "10px",
-                    cursor: "pointer",
-                    backgroundColor:
-                      selectedAnswer === answer
-                        ? answer === currentQuestion.correctAnswer
-                          ? "#4CAF50" // Correct answer selected
-                          : "#FF5733" // Wrong answer selected
-                        : "#1a1a1a", // Default color
-                  }}
-                >
-                  {answer}
-                </button>
-              </div>
-            ))}
+            <div id="answer-button-container">
+              {shuffledAnswers.map((answer, index) => (
+                <div key={index}>
+                  <button
+                    id="answer-button"
+                    onClick={() => handleAnswerClick(answer)}
+                    style={{
+                      margin: "5px",
+                      padding: "10px",
+                      cursor: "pointer",
+                      backgroundColor:
+                        selectedAnswer === answer
+                          ? answer === currentQuestion.correctAnswer
+                            ? "#4CAF50" // Correct answer selected
+                            : "#FF5733" // Wrong answer selected
+                          : "#1a1a1a", // Default color
+                    }}
+                  >
+                    {answer}
+                  </button>
+                </div>
+              ))}
+            </div>
             <div
               className="feedback"
               style={{

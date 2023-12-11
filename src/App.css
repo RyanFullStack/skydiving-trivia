@@ -42,7 +42,7 @@
   height: 2.5em;
   border-radius: 5px;
   text-align: center;
-  width: 120px;
+  width: 150px;
 }
 
 .home-page a {
@@ -89,8 +89,18 @@
   font-size: .9em;
 }
 
+#answer-button-container {
+  display: flex;
+  flex-direction: column; /* Three equal-width columns */
+  gap: 10px; /* Adjust the gap between buttons as needed */
+}
+
 #answer-button {
-  min-width: 150px;
+  width: 100%;
+}
+
+#start-button {
+  width: 150px;
 }
 
 #quit-button {
