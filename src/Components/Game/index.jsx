@@ -13,7 +13,7 @@ const TriviaQuiz = ({ questions }) => {
   const [questionsList, setQuestionsList] = useState([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState("Hard");
 
-  const history = useHistory()
+  const history = useHistory();
 
   useEffect(() => {
     let timerId;
@@ -101,8 +101,8 @@ const TriviaQuiz = ({ questions }) => {
   };
 
   const handleLeader = () => {
-    history.push('/leaderboard')
-  }
+    history.push("/leaderboard");
+  };
 
   const currentQuestion = questionsList[currentQuestionIndex];
 
@@ -135,10 +135,14 @@ const TriviaQuiz = ({ questions }) => {
             </select>
           </label>
           <div>
-            <button onClick={startGame} id='start-button'>Start!</button>
+            <button onClick={startGame} id="start-button">
+              Start!
+            </button>
           </div>
           {selectedDifficulty === "Hard" ? (
-            <button onClick={handleLeader} id='leader-button'>Leaderboard</button>
+            <button onClick={handleLeader} id="leader-button">
+              Leaderboard
+            </button>
           ) : (
             <div className="not-hard-mode">
               Must be on Hard for Leaderboard!
@@ -156,6 +160,13 @@ const TriviaQuiz = ({ questions }) => {
                 <div key={index}>
                   <button
                     id="answer-button"
+                    className={`answer-button ${
+                      selectedAnswer === answer
+                        ? answer === currentQuestion.correctAnswer
+                          ? "correct"
+                          : "incorrect"
+                        : ""
+                    }`}
                     onClick={() => handleAnswerClick(answer)}
                     style={{
                       margin: "5px",
@@ -167,6 +178,12 @@ const TriviaQuiz = ({ questions }) => {
                             ? "#4CAF50" // Correct answer selected
                             : "#FF5733" // Wrong answer selected
                           : "#1a1a1a", // Default color
+                      color:
+                        selectedAnswer === answer
+                          ? answer === currentQuestion.correctAnswer
+                            ? "#FFFFFF" // Correct answer selected
+                            : "#FFFFFF" // Wrong answer selected
+                          : "#2fccc4", // Default color
                     }}
                   >
                     {answer}

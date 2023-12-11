@@ -42,6 +42,7 @@
   border-radius: 5px;
   text-align: center;
   width: 150px;
+  cursor: pointer;
 }
 
 .home-page a {

@@ -34,12 +34,12 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-  color: rgb(47, 204, 196);
+  color: #2fccc4;
 }
 
 button:hover {
-  border-color: #64e0ff;
-  color: rgb(255, 255, 255);
+  border-color: #64e0ff !important;
+  color: rgb(255, 255, 255) !important;
 }
 
 a:link {
