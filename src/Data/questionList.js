@@ -666,7 +666,7 @@ export const questions = [
     },
 
     {
-        questionId: 138, question: 'What are some of the possible results of a turn made too low to the ground??', correctAnswer: 'Serious injury or death.',
+        questionId: 138, question: 'What are some of the possible results of a turn made too low to the ground?', correctAnswer: 'Serious injury or death.',
         incorrectAnswers: ['Increased chance of landing on target.', 'Horseshoe malfunction.'], difficulty: 'Easy'
     },
 
