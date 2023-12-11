@@ -242,7 +242,7 @@ export const questions = [
     },
 
     {
-        questionId: 53, question: 'What is the purpose of the automatic activation device?', correctAnswer: 'To back up the jumper’s emergency procedures.',
+        questionId: 53, question: 'What is the purpose of the automatic activation device?', correctAnswer: 'To back up the jumpers emergency procedures.',
         incorrectAnswers: ['To deploy the main canopy if the jumper is unable.', 'To give the jumper more useable freefall time.'], difficulty: 'Easy'
     },
 
@@ -526,8 +526,8 @@ export const questions = [
     },
 
     {
-        questionId: 110, question: 'What is the danger of entering a toggle turn too quickly?', correctAnswer: 'Stall',
-        incorrectAnswers: ['Line Twist', 'Lineover'], difficulty: 'Easy'
+        questionId: 110, question: 'What is the danger of entering a toggle turn too quickly?', correctAnswer: 'Line Twist',
+        incorrectAnswers: ['Stall', 'Lineover'], difficulty: 'Easy'
     },
 
     {
@@ -591,7 +591,7 @@ export const questions = [
     },
 
     {
-        questionId: 123, question: 'What extra consideration is required when sitting or moving towards an opened door?', correctAnswer: 'All of the above.',
+        questionId: 123, question: 'What extra consideration is required when sitting or moving towards an opened door?', correctAnswer: 'All are correct.',
         incorrectAnswers: ['Check your handles before starting to move to the door.', 'Be aware of your handles near the door.'], difficulty: 'Easy'
     },
 
@@ -701,7 +701,7 @@ export const questions = [
     },
 
     {
-        questionId: 145, question: 'An additional hazard under canopy during night jumps may be:', correctAnswer: 'All of the above',
+        questionId: 145, question: 'An additional hazard under canopy during night jumps may be:', correctAnswer: 'All are correct.',
         incorrectAnswers: ['Moon Shadow', 'Reduced Vision', 'Impaired Depth Perception'], difficulty: 'Hard'
     },
 
@@ -721,7 +721,7 @@ export const questions = [
     },
 
     {
-        questionId: 149, question: 'Before jumping with cameras, USPA recommends:', correctAnswer: 'All of the above.',
+        questionId: 149, question: 'Before jumping with cameras, USPA recommends:', correctAnswer: 'All are correct.',
         incorrectAnswers: ['C License or higher', 'at least 50 recent jumps using the same equipment', 'Flying skills well above average'], difficulty: 'Medium'
     },
     {
@@ -742,7 +742,7 @@ export const questions = [
         incorrectAnswers: ['Enough for the flight plus 60 mins', 'Enough for the flight'], difficulty: 'Hard'
     },
     {
-        questionId: 154, question: 'All of a dropzones piston-powered jump planes must:', correctAnswer: 'Both',
+        questionId: 154, question: 'All of a dropzones piston-powered jump planes must be inspected:', correctAnswer: 'Both annually and every 100 hours',
         incorrectAnswers: ['Annually', 'Every 100 Hours', 'Never'], difficulty: 'Hard'
     },
     {
@@ -754,7 +754,7 @@ export const questions = [
         incorrectAnswers: ['Approved for any airplane used for skydiving', 'Not Approved'], difficulty: 'Hard'
     },
     {
-        questionId: 157, question: 'For extreme altitude jumps above 40,000 feet MSL, a skydiver should', correctAnswer: 'Both',
+        questionId: 157, question: 'For extreme altitude jumps above 40,000 feet MSL, a skydiver should', correctAnswer: 'Both A & D license and 2 jumps with the same equipment',
         incorrectAnswers: ['Hold a D license', 'Have made at least 2 jumps from below 35,000 feet MSL using the same equipment', 'None'], difficulty: 'Hard'
     },
     {
@@ -762,7 +762,7 @@ export const questions = [
         incorrectAnswers: ['Is considered advanced if above a 1.1:1 wing loading', 'Is considered advanced if above a 1.3:1 wing loading'], difficulty: 'Hard'
     },
     {
-        questionId: 159, question: 'When freeflying, a jumper should:', correctAnswer: 'All of the above.',
+        questionId: 159, question: 'When freeflying, a jumper should:', correctAnswer: 'All are correct.',
         incorrectAnswers: ['Have at least one visual and one audible altimeter', 'Use an AAD', 'Use equipment with proper pin and bridle protection.'], difficulty: 'Hard'
     },
     {
