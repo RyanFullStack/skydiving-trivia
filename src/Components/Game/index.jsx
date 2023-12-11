@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import EndScreen from "../EndScreen";
 
 const TriviaQuiz = ({ questions }) => {
@@ -12,6 +12,8 @@ const TriviaQuiz = ({ questions }) => {
   const [gameStarted, setGameStarted] = useState(false);
   const [questionsList, setQuestionsList] = useState([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState("Hard");
+
+  const history = useHistory()
 
   useEffect(() => {
     let timerId;
@@ -98,6 +100,10 @@ const TriviaQuiz = ({ questions }) => {
     setTimer(20);
   };
 
+  const handleLeader = () => {
+    history.push('/leaderboard')
+  }
+
   const currentQuestion = questionsList[currentQuestionIndex];
 
   return (
@@ -116,7 +122,7 @@ const TriviaQuiz = ({ questions }) => {
       )}
       {currentQuestionIndex === -1 && (
         <div className="home-page">
-          <h1>Welcome to the CSC Skydiving trivia game!</h1>
+          <h1>Welcome to the CSC trivia game!</h1>
           <label>
             Difficulty:
             <select
@@ -132,7 +138,7 @@ const TriviaQuiz = ({ questions }) => {
             <button onClick={startGame} id='start-button'>Start!</button>
           </div>
           {selectedDifficulty === "Hard" ? (
-            <NavLink to="/leaderboard">View Leaderboard</NavLink>
+            <button onClick={handleLeader} id='leader-button'>Leaderboard</button>
           ) : (
             <div className="not-hard-mode">
               Must be on Hard for Leaderboard!
@@ -188,7 +194,7 @@ const TriviaQuiz = ({ questions }) => {
       )}
       {!currentQuestion && currentQuestionIndex !== -1 && gameStarted && (
         <EndScreen
-          correctAnswersCount={correctAnswersCount}
+          correctAnswersCount={30}
           questionsList={questionsList}
           selectedDifficulty={selectedDifficulty}
           resetGame={resetGame}

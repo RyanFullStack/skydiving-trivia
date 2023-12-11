@@ -33,7 +33,6 @@
   margin: 1em 0 1em;
 }
 
-.home-page button,
 .about-page button {
   margin-bottom: 3em;
 }
@@ -77,10 +76,6 @@
   color: rgb(47, 204, 196);
 }
 
-#end-home-button {
-  margin: 2em 0 1em;
-}
-
 .correct-timer {
   display: flex;
   width: 100%;
@@ -99,13 +94,19 @@
   width: 100%;
 }
 
-#start-button {
+#start-button, #leader-button, #end-home-button, #submit-button {
   width: 150px;
+  margin-bottom: 1.5em;
+}
+
+#name-input {
+  height: 2em;
 }
 
 #quit-button {
   margin: 1em 0 1em;
   color: rgb(194, 16, 16);
+  width: 150px;
 }
 
 #quit-button:hover {
