@@ -48,22 +48,6 @@ const TriviaQuiz = ({ questions }) => {
     }
   }, [currentQuestionIndex, questionsList]);
 
-  useEffect(() => {
-    if (gameStarted && currentQuestionIndex === 0) {
-      const filteredQuestions = questions
-        .filter(
-          (q) =>
-            selectedDifficulty === "Hard" ||
-            (selectedDifficulty === "Medium" &&
-              (q.difficulty === "Medium" || q.difficulty === "Easy")) ||
-            (selectedDifficulty === "Easy" && q.difficulty === "Easy")
-        )
-        .sort(() => Math.random() - 0.5);
-
-      setQuestionsList(filteredQuestions);
-    }
-  }, [currentQuestionIndex, gameStarted, selectedDifficulty, questions]);
-
   const handleAnswerClick = (answer) => {
     const currentQuestion = questionsList[currentQuestionIndex];
     if (currentQuestion) {
@@ -90,16 +74,21 @@ const TriviaQuiz = ({ questions }) => {
     setCurrentQuestionIndex(0);
     setCorrectAnswersCount(0);
 
-    // Shuffle the order of all questions
-    const shuffledAllQuestions = [...questions].sort(() => Math.random() - 0.5);
+    // Shuffle all questions and apply difficulty filter
+    const shuffledFilteredQuestions = questions
+      .sort(() => Math.random() - 0.5)
+      .filter(
+        (q) =>
+          selectedDifficulty === "Hard" ||
+          (selectedDifficulty === "Medium" &&
+            (q.difficulty === "Medium" || q.difficulty === "Easy")) ||
+          (selectedDifficulty === "Easy" && q.difficulty === "Easy")
+      );
 
     // Select the first 30 questions
-    const selectedQuestions = shuffledAllQuestions.slice(0, 30);
+    const selectedQuestions = shuffledFilteredQuestions.slice(0, 30);
 
-    // Shuffle the order of selected questions
-    const shuffledQuestions = selectedQuestions.sort(() => Math.random() - 0.5);
-
-    setQuestionsList(shuffledQuestions);
+    setQuestionsList(selectedQuestions);
   };
 
   const resetGame = () => {
@@ -144,7 +133,9 @@ const TriviaQuiz = ({ questions }) => {
           {selectedDifficulty === "Hard" ? (
             <NavLink to="/leaderboard">View Leaderboard</NavLink>
           ) : (
-            <div className="not-hard-mode">Must be on Hard for Leaderboard!</div>
+            <div className="not-hard-mode">
+              Must be on Hard for Leaderboard!
+            </div>
           )}
           <NavLink to="/about">About</NavLink>
         </div>
@@ -156,7 +147,7 @@ const TriviaQuiz = ({ questions }) => {
             {shuffledAnswers.map((answer, index) => (
               <div key={index}>
                 <button
-                  id='answer-button'
+                  id="answer-button"
                   onClick={() => handleAnswerClick(answer)}
                   style={{
                     margin: "5px",
@@ -174,19 +165,21 @@ const TriviaQuiz = ({ questions }) => {
                 </button>
               </div>
             ))}
-              <div
-                className='feedback'
-                style={{
-                  color:
-                    selectedAnswer === currentQuestion.correctAnswer
-                      ? "#4CAF50" // Correct feedback color
-                      : "#FF5733", // Incorrect feedback color
-                }}
-              >
-                {feedback}
-              </div>
+            <div
+              className="feedback"
+              style={{
+                color:
+                  selectedAnswer === currentQuestion.correctAnswer
+                    ? "#4CAF50" // Correct feedback color
+                    : "#FF5733", // Incorrect feedback color
+              }}
+            >
+              {feedback}
+            </div>
 
-            <button onClick={resetGame} id='quit-button'>QUIT</button>
+            <button onClick={resetGame} id="quit-button">
+              QUIT
+            </button>
           </div>
         </div>
       )}
