@@ -4,4 +4,4 @@
 
 ### Choose a difficulty and click start!
 
-#### You will be given 30 random question and 15 seconds to answer each one. Good luck!
+#### You will be given 30 random question and 20 seconds to answer each one. Good luck!

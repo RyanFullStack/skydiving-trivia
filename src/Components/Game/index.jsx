@@ -6,7 +6,7 @@ const TriviaQuiz = ({ questions }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
-  const [timer, setTimer] = useState(15);
+  const [timer, setTimer] = useState(20);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
   const [feedback, setFeedback] = useState(null);
   const [gameStarted, setGameStarted] = useState(false);
@@ -24,7 +24,7 @@ const TriviaQuiz = ({ questions }) => {
       setSelectedAnswer(null);
       setFeedback(null);
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-      setTimer(15);
+      setTimer(20);
     }
 
     // Check if the game has ended
@@ -65,7 +65,7 @@ const TriviaQuiz = ({ questions }) => {
       setSelectedAnswer(null);
       setFeedback(null);
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-      setTimer(15);
+      setTimer(20);
     }, 1000);
   };
 
@@ -95,6 +95,7 @@ const TriviaQuiz = ({ questions }) => {
     setGameStarted(false);
     setCurrentQuestionIndex(-1);
     setCorrectAnswersCount(0);
+    setTimer(20)
   };
 
   const currentQuestion = questionsList[currentQuestionIndex];
