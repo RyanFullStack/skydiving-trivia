@@ -38,8 +38,8 @@ button {
 }
 
 button:hover {
-  border-color: #64e0ff !important;
-  color: rgb(255, 255, 255) !important;
+  border-color: #64e0ff;
+  color: rgb(255, 255, 255);
 }
 
 a:link {
