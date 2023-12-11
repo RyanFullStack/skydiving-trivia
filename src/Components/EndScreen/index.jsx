@@ -45,6 +45,10 @@ function EndScreen({
     history.push("/leaderboard");
   };
 
+  const handleLeader = () => {
+    history.push("/leaderboard")
+  }
+
   return (
     <div className="end-page">
       <h2>Quiz Finished!</h2>
@@ -89,7 +93,7 @@ function EndScreen({
       <button onClick={resetGame} id="end-home-button">
         Home
       </button>
-      <button id="leader-button">Leaderboard</button>
+      <button id="leader-button" onClick={handleLeader}>Leaderboard</button>
     </div>
   );
 }
