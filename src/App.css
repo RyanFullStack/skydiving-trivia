@@ -90,6 +90,12 @@
   gap: 10px; /* Adjust the gap between buttons as needed */
 }
 
+.congrats-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 50px;
+}
+
 #answer-button {
   width: 100%;
 }

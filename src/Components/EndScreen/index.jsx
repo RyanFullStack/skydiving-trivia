@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function EndScreen({ correctAnswersCount, questionsList, selectedDifficulty, resetGame }) {
+function EndScreen({
+  correctAnswersCount,
+  questionsList,
+  selectedDifficulty,
+  resetGame,
+}) {
   const [lowestScore, setLowestScore] = useState(null);
-  const [userName, setUserName] = useState('')
-  const history = useHistory()
+  const [userName, setUserName] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     const getLeaders = async () => {
@@ -25,40 +30,66 @@ function EndScreen({ correctAnswersCount, questionsList, selectedDifficulty, res
     getLeaders();
   }, []);
 
-  const handleSubmit = async() => {
-    await fetch('https://csc-login.onrender.com/api/leaders/new', {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-            "api_key": import.meta.env.VITE_API_KEY
-        },
-        body: JSON.stringify({
-            "name": userName,
-            "score": `${correctAnswersCount}/${questionsList.length}`
-        })
-    })
-    history.push('/leaderboard')
-  }
+  const handleSubmit = async () => {
+    await fetch("https://csc-login.onrender.com/api/leaders/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        api_key: import.meta.env.VITE_API_KEY,
+      },
+      body: JSON.stringify({
+        name: userName,
+        score: `${correctAnswersCount}/${questionsList.length}`,
+      }),
+    });
+    history.push("/leaderboard");
+  };
 
   return (
     <div className="end-page">
       <h2>Quiz Finished!</h2>
-      <p>Correct Answers: {correctAnswersCount}/{questionsList.length}</p>
-        Your Score:{" "}
-        {((correctAnswersCount / questionsList.length) * 100).toFixed(2)}%
-      {lowestScore && selectedDifficulty === 'Hard' && correctAnswersCount >= lowestScore
-      ?
-      <div>
-        <h2 className="blue">Congrats!</h2>
-        <h3 className="blue">You've earned a leaderboard spot!</h3>
-        <p>Enter your name below: <br /><small className={userName.length > 15 ? 'red' : ''}>(up to 15 characters - {userName.length} / 15)</small></p>
-        <p><input type='text' value={userName} onChange={(e)=>setUserName(e.target.value)} id='name-input'/></p>
-        <p><button onClick={handleSubmit} disabled={userName.length > 15 || !userName.trim()} id='submit-button'>Submit!</button></p>
+      <p>
+        Correct Answers: {correctAnswersCount}/{questionsList.length}
+      </p>
+      Your Score:{" "}
+      {((correctAnswersCount / questionsList.length) * 100).toFixed(2)}%
+      <div className="congrats-container">
+        {lowestScore &&
+        selectedDifficulty === "Hard" &&
+        correctAnswersCount >= lowestScore ? (
+          <div>
+            <h2 className="blue">Congrats!</h2>
+            <h3 className="blue">You've earned a leaderboard spot!</h3>
+            <p>
+              Enter your name below: <br />
+              <small className={userName.length > 15 ? "red" : ""}>
+                (up to 15 characters - {userName.length} / 15)
+              </small>
+            </p>
+            <p>
+              <input
+                type="text"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                id="name-input"
+              />
+            </p>
+            <p>
+              <button
+                onClick={handleSubmit}
+                disabled={userName.length > 15 || !userName.trim()}
+                id="submit-button"
+              >
+                Submit!
+              </button>
+            </p>
+          </div>
+        ) : null}
       </div>
-      :
-      null}
-      <button onClick={resetGame} id='end-home-button'>Home</button>
-      <button id='leader-button'>Leaderboard</button>
+      <button onClick={resetGame} id="end-home-button">
+        Home
+      </button>
+      <button id="leader-button">Leaderboard</button>
     </div>
   );
 }
