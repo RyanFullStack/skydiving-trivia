@@ -754,7 +754,7 @@ export const questions = [
         incorrectAnswers: ['Approved for any airplane used for skydiving', 'Not Approved'], difficulty: 'Hard'
     },
     {
-        questionId: 157, question: 'For extreme altitude jumps above 40,000 feet MSL, a skydiver should', correctAnswer: 'Both A & D license and 2 jumps with the same equipment',
+        questionId: 157, question: 'For extreme altitude jumps above 40,000 feet MSL, a skydiver should', correctAnswer: 'Both a USPA D license and at least 2 jumps with the same equipment',
         incorrectAnswers: ['Hold a D license', 'Have made at least 2 jumps from below 35,000 feet MSL using the same equipment', 'None'], difficulty: 'Hard'
     },
     {
