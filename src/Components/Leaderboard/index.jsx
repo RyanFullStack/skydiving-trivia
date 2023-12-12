@@ -26,7 +26,7 @@ function Leaders() {
 
   return (
     <div className="leader-page">
-      <h1>Top 5</h1>
+      <h1>Top 10!</h1>
       <table style={{ borderCollapse: "collapse", width: "100%" }}>
         <thead>
           <tr>
