@@ -52,6 +52,7 @@ function EndScreen({
   return (
     <div className="end-page">
       <h2>Quiz Finished!</h2>
+      Mode: {selectedDifficulty}
       <p>
         Correct Answers: {correctAnswersCount}/{questionsList.length}
       </p>
