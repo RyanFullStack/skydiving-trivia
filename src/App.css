@@ -124,3 +124,16 @@
   margin-top: 1em;
   min-height: 50px;
 }
+
+.leader-name-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#leader-position {
+  width: 10%;
+}
+
+#leader-name {
+  width: 90%;
+}
