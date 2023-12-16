@@ -87,8 +87,8 @@
 
 #answer-button-container {
   display: flex;
-  flex-direction: column; /* Three equal-width columns */
-  gap: 10px; /* Adjust the gap between buttons as needed */
+  flex-direction: column;
+  gap: 10px;
 }
 
 .congrats-container {
