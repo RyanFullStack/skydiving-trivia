@@ -13,6 +13,7 @@ const TriviaQuiz = ({ questions }) => {
   const [questionsList, setQuestionsList] = useState([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState("Hard");
   const [answerSelected, setAnswerSelected] = useState(false);
+  const [answerTimeoutId, setAnswerTimeoutId] = useState(null);
 
   const history = useHistory();
 
@@ -66,13 +67,16 @@ const TriviaQuiz = ({ questions }) => {
     setAnswerSelected(true)
     setSelectedAnswer(answer);
 
-    setTimeout(() => {
-      setSelectedAnswer(null);
-      setFeedback(null);
-      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-      setTimer(20);
-      setAnswerSelected(false)
-    }, 1000);
+    const timeoutId = setTimeout(() => {
+    setSelectedAnswer(null);
+    setFeedback(null);
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    setTimer(20);
+    setAnswerSelected(false);
+  }, 1000);
+
+  // Store the timeout ID in state to cancel it if needed
+  setAnswerTimeoutId(timeoutId);
   };
 
   const startGame = () => {
@@ -101,7 +105,13 @@ const TriviaQuiz = ({ questions }) => {
     setGameStarted(false);
     setCurrentQuestionIndex(-1);
     setCorrectAnswersCount(0);
+    setAnswerSelected(false)
+    setSelectedAnswer(null)
     setTimer(20);
+
+    if (answerTimeoutId) {
+      clearTimeout(answerTimeoutId);
+    }
   };
 
   const handleLeader = () => {
