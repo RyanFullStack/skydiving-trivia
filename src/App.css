@@ -143,9 +143,6 @@
 
 .gold {
   color: #ffd700;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
 }
 
 .silver {
@@ -154,15 +151,4 @@
 
 .bronze {
   color: #cd7f32;
-}
-
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 15px #fff, 0 0 25px #fff, 0 0 35px #ffd700,
-      0 0 25px #ffd700, 0 0 35px #ffd700, 0 0 45px #ffd700, 0 0 55px #ffd700;
-  }
-  to {
-    text-shadow: 0 0 25px #fff, 0 0 35px #ffd700, 0 0 45px #ffd700,
-      0 0 35px #ffd700, 0 0 45px #ffd700, 0 0 55px #ffd700, 0 0 65px #ffd700;
-  }
 }
