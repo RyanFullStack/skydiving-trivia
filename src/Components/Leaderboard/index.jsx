@@ -40,14 +40,15 @@ function Leaders() {
             <tr
               key={index}
               style={{ backgroundColor: index % 2 === 0 ? "#111111" : "transparent" }}
+              className={index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : ''}
             >
-              <td style={{ padding: "8px", border: "1px solid #ddd", color: index === 0 ? '#FFD700' : index === 1 ? '#C0C0C0' : index === 2 ? '#CD7F32' : '#FFFFFF'}}>
+              <td style={{ padding: "8px", border: "1px solid #ddd"}}>
                 <div className="leader-name-container"><span id ='leader-position'>{index+1}.</span> <span id='leader-name'>{leader.name}</span></div>
               </td>
-              <td style={{ padding: "8px", border: "1px solid #ddd", color: index === 0 ? '#FFD700' : index === 1 ? '#C0C0C0' : index === 2 ? '#CD7F32' : '#FFFFFF' }}>
+              <td style={{ padding: "8px", border: "1px solid #ddd" }}>
                 {leader.score}
               </td>
-              <td style={{ padding: "8px", border: "1px solid #ddd", color: index === 0 ? '#FFD700' : index === 1 ? '#C0C0C0' : index === 2 ? '#CD7F32' : '#FFFFFF' }}>
+              <td style={{ padding: "8px", border: "1px solid #ddd" }}>
               {new Date(leader.created_at).toLocaleDateString('en-US', { month: 'numeric', day: 'numeric' })}
               </td>
             </tr>

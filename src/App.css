@@ -82,7 +82,7 @@
   width: 100%;
   justify-content: space-between;
   gap: 1em;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 #answer-button-container {
@@ -101,7 +101,10 @@
   width: 100%;
 }
 
-#start-button, #leader-button, #end-home-button, #submit-button {
+#start-button,
+#leader-button,
+#end-home-button,
+#submit-button {
   width: 150px;
   margin-bottom: 1.5em;
 }
@@ -136,4 +139,30 @@
 
 #leader-name {
   width: 90%;
+}
+
+.gold {
+  color: #ffd700;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+.silver {
+  color: #c0c0c0;
+}
+
+.bronze {
+  color: #cd7f32;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 15px #fff, 0 0 25px #fff, 0 0 35px #ffd700,
+      0 0 25px #ffd700, 0 0 35px #ffd700, 0 0 45px #ffd700, 0 0 55px #ffd700;
+  }
+  to {
+    text-shadow: 0 0 25px #fff, 0 0 35px #ffd700, 0 0 45px #ffd700,
+      0 0 35px #ffd700, 0 0 45px #ffd700, 0 0 55px #ffd700, 0 0 65px #ffd700;
+  }
 }
