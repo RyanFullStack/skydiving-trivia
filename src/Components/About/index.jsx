@@ -11,7 +11,7 @@ function About() {
     <div className='about-page'>
       <h1>About the app</h1>
       <p>
-        You will be given 30 random questions from a huge dataset of skydiving
+        You will be given random questions (30 on Hard, 20 on Medium, 10 on Easy) from a huge dataset of skydiving
         trivia. There are Easy, Medium, and Hard level questions. You will be given questions from your selected difficulty and below.
         You have 20 seconds for each question. At the end of the game,
         if you've made it to the leaderboard you'll be prompted to enter your

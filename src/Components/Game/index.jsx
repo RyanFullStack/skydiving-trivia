@@ -95,9 +95,16 @@ const TriviaQuiz = ({ questions }) => {
           (selectedDifficulty === "Easy" && q.difficulty === "Easy")
       );
 
-    // Select the first 30 questions
-    const selectedQuestions = shuffledFilteredQuestions.slice(0, 30);
-
+    // Select the first 30 or 50 questions depensing on diffictuly.
+    let selectedQuestions;
+    if (selectedDifficulty === 'Hard') {
+      selectedQuestions = shuffledFilteredQuestions.slice(0, 30);
+    }
+    else if (selectedDifficulty === 'Medium') {
+      selectedQuestions = shuffledFilteredQuestions.slice(0, 20);
+    } else {
+      selectedQuestions = shuffledFilteredQuestions.slice(0, 10);
+    }
     setQuestionsList(selectedQuestions);
   };
 
@@ -107,6 +114,7 @@ const TriviaQuiz = ({ questions }) => {
     setCorrectAnswersCount(0);
     setAnswerSelected(false)
     setSelectedAnswer(null)
+    setFeedback(null)
     setTimer(20);
 
     if (answerTimeoutId) {
