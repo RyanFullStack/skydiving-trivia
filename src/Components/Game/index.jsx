@@ -95,13 +95,13 @@ const TriviaQuiz = ({ questions }) => {
           (selectedDifficulty === "Easy" && q.difficulty === "Easy")
       );
 
-    // Select the first 30 or 50 questions depensing on diffictuly.
+    // Select the first 10, 30 or 50 questions depensing on diffictuly.
     let selectedQuestions;
     if (selectedDifficulty === 'Hard') {
-      selectedQuestions = shuffledFilteredQuestions.slice(0, 30);
+      selectedQuestions = shuffledFilteredQuestions.slice(0, 50);
     }
     else if (selectedDifficulty === 'Medium') {
-      selectedQuestions = shuffledFilteredQuestions.slice(0, 20);
+      selectedQuestions = shuffledFilteredQuestions.slice(0, 30);
     } else {
       selectedQuestions = shuffledFilteredQuestions.slice(0, 10);
     }
