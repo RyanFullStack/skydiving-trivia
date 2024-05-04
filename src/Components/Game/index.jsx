@@ -170,6 +170,7 @@ const TriviaQuiz = ({ questions }) => {
               Must be on Hard for Leaderboard!
             </div>
           )}
+          <NavLink to="/free-jump" id='free-jump'>WIN A FREE JUMP</NavLink>
           <NavLink to="/about">About</NavLink>
         </div>
       )}

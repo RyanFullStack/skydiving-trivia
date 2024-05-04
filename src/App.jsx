@@ -3,6 +3,7 @@ import { questions } from "./Data/questionList";
 import TriviaQuiz from "./Components/Game";
 import Leaders from "./Components/Leaderboard";
 import About from "./Components/About";
+import FreeJump from "./Components/FreeJump";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,10 @@ function App() {
 
         <Route exact path='/about'>
           <About />
+        </Route>
+
+        <Route exact path='/free-jump'>
+          <FreeJump />
         </Route>
 
         <Route exact path="/">
