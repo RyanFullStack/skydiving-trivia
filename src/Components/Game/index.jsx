@@ -27,7 +27,6 @@ const TriviaQuiz = ({ questions }) => {
     } else if (timer === 0 && currentQuestionIndex !== -1) {
       setSelectedAnswer(null);
       setFeedback(null);
-      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       setTimer(20);
     }
 
@@ -70,9 +69,9 @@ const TriviaQuiz = ({ questions }) => {
     const timeoutId = setTimeout(() => {
     setSelectedAnswer(null);
     setFeedback(null);
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     setTimer(20);
     setAnswerSelected(false);
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   }, 1000);
 
   // Store the timeout ID in state to cancel it if needed
