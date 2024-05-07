@@ -24,10 +24,11 @@ const TriviaQuiz = ({ questions }) => {
       timerId = setInterval(() => {
         setTimer((prevTimer) => prevTimer - 1);
       }, 1000);
-    } else if (timer === 0 && currentQuestionIndex !== -1) {
+    } else if (timer === 0 && currentQuestionIndex !== -1 && !answerSelected) {
       setSelectedAnswer(null);
       setFeedback(null);
       setTimer(20);
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     }
 
     // Check if the game has ended
