@@ -1,0 +1,30 @@
+.td1 {
+  width: 60%;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.td2,
+.td3 {
+  width: 20%;
+}
+
+.td1,
+.td2,
+.td3 {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.skeleton {
+  background: linear-gradient(-45deg, #222222 40%, #333333 50%, #222222 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+  animation: shimmer 0.8s infinite linear;
+}
+
+@keyframes shimmer {
+  to {
+    background-position-x: 0%;
+  }
+}

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import LeaderboardSkeleton from "./skeleton";
+import "./leaders.css";
 
 function Leaders() {
   const [leaders, setLeaders] = useState([]);
@@ -36,27 +38,49 @@ function Leaders() {
           </tr>
         </thead>
         <tbody>
-          {leaders.map((leader, index) => (
-            <tr
-              key={index}
-              style={{ backgroundColor: index % 2 === 0 ? "#111111" : "transparent" }}
-              className={index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : ''}
-            >
-              <td style={{ padding: "8px", border: "1px solid #ddd"}}>
-                <div className="leader-name-container"><span id ='leader-position'>{index+1}.</span> <span id='leader-name'>{leader.name}</span></div>
-              </td>
-              <td style={{ padding: "8px", border: "1px solid #ddd" }}>
-                {leader.score}
-              </td>
-              <td style={{ padding: "8px", border: "1px solid #ddd" }}>
-              {new Date(leader.created_at).toLocaleDateString('en-US', { month: 'numeric', day: 'numeric' })}
-              </td>
-            </tr>
-          ))}
+          {leaders[0] ? (
+            leaders.map((leader, index) => (
+              <tr
+                key={index}
+                style={{
+                  backgroundColor: index % 2 === 0 ? "#111111" : "transparent",
+                }}
+                className={
+                  index === 0
+                    ? "gold"
+                    : index === 1
+                    ? "silver"
+                    : index === 2
+                    ? "bronze"
+                    : ""
+                }
+              >
+                <td className="td1">
+                  <div className="leader-name-container">
+                    <span id="leader-position">{index + 1}.</span>{" "}
+                    <span id="leader-name">{leader.name}</span>
+                  </div>
+                </td>
+                <td className="td2">{leader.score}</td>
+                <td className="td3">
+                  {new Date(leader.created_at).toLocaleDateString("en-US", {
+                    month: "numeric",
+                    day: "numeric",
+                  })}
+                </td>
+              </tr>
+            ))
+          ) : (
+            <LeaderboardSkeleton />
+          )}
         </tbody>
       </table>
-      <p><button onClick={handleHome}>Home</button></p>
-      <small>Tie or beat the lowest score on hard mode to get your name here!</small>
+      <p>
+        <button onClick={handleHome}>Home</button>
+      </p>
+      <small>
+        Tie or beat the lowest score on hard mode to get your name here!
+      </small>
     </div>
   );
 }
