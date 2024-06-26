@@ -9,10 +9,9 @@ function FreeJump() {
 
   return (
     <div className='about-page'>
-      <h1>How To Win:</h1>
+      <h1>Game Update:</h1>
       <p>
-        At the end of every month during jump season, we will randomly select a name from the leaderboard to win a free jump. You do not need to be in the top three,
-        simply having your name anywhere on the leaderboard will qualify you. The leaderboard will be reset at the beginning of every month.
+        The free jump game has concluded. Thanks for participating! Please continue to use the game at your leisure to stay sharp on your knowledge.
       </p>
       <p className='blue'>Good Luck!</p>
       <button onClick={handleHome}>Home</button>
