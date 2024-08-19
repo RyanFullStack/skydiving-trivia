@@ -1,7 +1,7 @@
 # Skydiving Trivia Game
 
 ## Getting Started
-Play the game at http://trivia.skydivecsc.com/
+Play the game at http://trivia.cscwx.com/
 
 ## Landing
 ![home](/src/assets/trivia.png)
