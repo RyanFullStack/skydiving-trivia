@@ -57,6 +57,8 @@ function EndScreen({
         Correct Answers: {correctAnswersCount}/{questionsList.length}
       </p>
       Your Score:{" "}
+
+{/*
       {((correctAnswersCount / questionsList.length) * 100).toFixed(2)}%
       <div className="congrats-container">
         {lowestScore &&
@@ -90,11 +92,13 @@ function EndScreen({
             </p>
           </div>
         ) : null}
-      </div>
+
+
+      </div> */}
       <button onClick={resetGame} id="end-home-button">
         Home
       </button>
-      <button id="leader-button" onClick={handleLeader}>Leaderboard</button>
+      {/* <button id="leader-button" onClick={handleLeader}>Leaderboard</button> */}
     </div>
   );
 }

@@ -6,7 +6,7 @@ const TriviaQuiz = ({ questions }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(-1);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
-  const [timer, setTimer] = useState(20);
+  const [timer, setTimer] = useState(30);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
   const [feedback, setFeedback] = useState(null);
   const [gameStarted, setGameStarted] = useState(false);
@@ -27,7 +27,7 @@ const TriviaQuiz = ({ questions }) => {
     } else if (timer === 0 && currentQuestionIndex !== -1 && !answerSelected) {
       setSelectedAnswer(null);
       setFeedback(null);
-      setTimer(20);
+      setTimer(30);
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     }
 
@@ -70,7 +70,7 @@ const TriviaQuiz = ({ questions }) => {
     const timeoutId = setTimeout(() => {
     setSelectedAnswer(null);
     setFeedback(null);
-    setTimer(20);
+    setTimer(30);
     setAnswerSelected(false);
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   }, 1000);
@@ -115,7 +115,7 @@ const TriviaQuiz = ({ questions }) => {
     setAnswerSelected(false)
     setSelectedAnswer(null)
     setFeedback(null)
-    setTimer(20);
+    setTimer(30);
 
     if (answerTimeoutId) {
       clearTimeout(answerTimeoutId);
@@ -161,7 +161,7 @@ const TriviaQuiz = ({ questions }) => {
               Start!
             </button>
           </div>
-          {selectedDifficulty === "Hard" ? (
+          {/* {selectedDifficulty === "Hard" ? (
             <button onClick={handleLeader} id="leader-button">
               Leaderboard
             </button>
@@ -169,8 +169,7 @@ const TriviaQuiz = ({ questions }) => {
             <div className="not-hard-mode">
               Must be on Hard for Leaderboard!
             </div>
-          )}
-          <NavLink to="/free-jump" id='free-jump'>WIN A FREE JUMP</NavLink>
+          )} */}
           <NavLink to="/about">About</NavLink>
         </div>
       )}

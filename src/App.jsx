@@ -10,16 +10,8 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path='/leaderboard'>
-          <Leaders />
-        </Route>
-
         <Route exact path='/about'>
           <About />
-        </Route>
-
-        <Route exact path='/free-jump'>
-          <FreeJump />
         </Route>
 
         <Route exact path="/">
